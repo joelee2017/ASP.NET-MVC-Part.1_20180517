@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 
 namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Models.Interface
@@ -14,7 +15,7 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Models.Interface
 
         void Delete(TEntity instance);
 
-        TEntity Get(int primaryID);
+        TEntity Get(Expression<Func<TEntity, bool>> predicate);
 
         IQueryable<TEntity> GetAll();
 
