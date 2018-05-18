@@ -1,4 +1,6 @@
 ﻿using ASP.NET_MVC_專案分層架構_Part._1_20180517.Models;
+using ASP.NET_MVC_專案分層架構_Part._1_20180517.Models.Interface;
+using ASP.NET_MVC_專案分層架構_Part._1_20180517.Models.Repositiry;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,15 +13,18 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
 {
     public class CategoryController : Controller
     {
+        private ICategoryRepository categoryRepository;
+
+        public CategoryController()
+        {
+            this.categoryRepository = new CategoryRepository();
+        }
+
         // GET: Category
         public ActionResult Index()
         {
-            using (NorthwindEntities db = new NorthwindEntities())
-            {
-                var query = db.Categories.OrderBy(x => x.CategoryID);
-                ViewData.Model = query.ToList();
-                return View();
-            }
+            var categories = this.categoryRepository.GetAll().ToList();
+            return View(categories);
         }
         //========================================================================
 
@@ -31,12 +36,8 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
             }
             else
             {
-                using (NorthwindEntities db = new NorthwindEntities())
-                {
-                    var model = db.Categories.FirstOrDefault(x => x.CategoryID == id.Value);
-                    ViewData.Model = model;
-                    return View();
-                }
+                var categories = this.categoryRepository.Get(id.Value);
+                return View(categories);
             }
         }
         //==========================================================================
@@ -51,11 +52,7 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
         {
             if(categories != null && ModelState.IsValid)
             {
-                using (NorthwindEntities db = new NorthwindEntities())
-                {
-                    db.Categories.Add(categories);
-                    db.SaveChanges();
-                }
+                this.categoryRepository.Create(categories);
                 return RedirectToAction("index");
             }
             else
@@ -69,16 +66,13 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
         {
             if(!id.HasValue)
             {
+
                 return RedirectToAction("index");
             }
             else
             {
-                using (NorthwindEntities db = new NorthwindEntities())
-                {
-                    var model = db.Categories.FirstOrDefault(x => x.CategoryID == id.Value);
-                    ViewData.Model = model;
-                    return View();
-                }
+                var category = this.categoryRepository.Get(id.Value);
+                return View(category);
             }
         }
 
@@ -87,12 +81,8 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
         {
             if(categories != null && ModelState.IsValid)
             {
-                using (NorthwindEntities db = new NorthwindEntities())
-                {
-                    db.Entry(categories).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return View(categories);
-                }
+                this.categoryRepository.Update(categories);
+                return View(categories);
             }
             else
             {
@@ -109,12 +99,8 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
             }
             else
             {
-                using (NorthwindEntities db = new NorthwindEntities())
-                {
-                    var model = db.Categories.FirstOrDefault(x => x.CategoryID == id.Value);
-                    ViewData.Model = model;
-                    return View();
-                }
+                var category = this.categoryRepository.Get(id.Value);
+                return View(category);
             }
         }
 
@@ -123,12 +109,8 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
         {
             try
             {
-                using (NorthwindEntities db = new NorthwindEntities())
-                {
-                    var target = db.Categories.FirstOrDefault(x => x.CategoryID == id);
-                    db.Categories.Remove(target);
-                    db.SaveChanges();
-                }
+                var category = this.categoryRepository.Get(id);
+                this.categoryRepository.Delete(category);
             }
             catch(DataException)
             {
