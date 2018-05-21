@@ -14,8 +14,8 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
 {
     public class ProductsController : Controller
     {
-        private IRepository<Products> productRepository;
-        private IRepository<Categories> categoryRepository;
+        private IProductRepository productRepository;
+        private ICategoryRepository categoryRepository;
 
         public IEnumerable<Categories> Categories
         {
@@ -27,8 +27,8 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
 
         public ProductsController()
         {
-            this.productRepository = new GenericRepository<Products>();
-            this.categoryRepository = new GenericRepository<Categories>();
+            this.productRepository = new ProductRepository();
+            this.categoryRepository = new CategoryRepository();
         }
 
         // GET: Products
@@ -43,7 +43,7 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
         // GET: Products/Details/5
         public ActionResult Details(int id = 0)
         {
-            Products products = productRepository.Get(x => x.ProductID == id);          
+            Products products = productRepository.GetByID(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -74,7 +74,7 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
         // GET: Products/Edit/5
         public ActionResult Edit(int id = 0)
         {
-            Products products = this.productRepository.Get(x => x.ProductID == id);
+            Products products = this.productRepository.GetByID(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
         // GET: Products/Delete/5
         public ActionResult Delete(int id = 0)
         {
-            Products products = this.productRepository.Get(x => x.ProductID == id);
+            Products products = this.productRepository.GetByID(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Products products = this.productRepository.Get(x => x.ProductID == id);
+            Products products = this.productRepository.GetByID(id);
             this.productRepository.Delete(products);
             return RedirectToAction("Index");
         }
