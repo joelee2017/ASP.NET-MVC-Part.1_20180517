@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
+namespace Mvc_Repository_Web.Controllers
 {
     public class HomeController : Controller
     {

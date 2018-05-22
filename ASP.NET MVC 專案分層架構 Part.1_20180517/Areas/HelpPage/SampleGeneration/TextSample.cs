@@ -1,6 +1,6 @@
 using System;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage
+namespace Mvc_Repository_Web.Areas.HelpPage
 {
     /// <summary>
     /// This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.

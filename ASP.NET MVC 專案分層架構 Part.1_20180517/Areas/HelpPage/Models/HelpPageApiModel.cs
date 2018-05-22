@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage.ModelDescriptions;
+using Mvc_Repository_Web.Areas.HelpPage.ModelDescriptions;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage.Models
+namespace Mvc_Repository_Web.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

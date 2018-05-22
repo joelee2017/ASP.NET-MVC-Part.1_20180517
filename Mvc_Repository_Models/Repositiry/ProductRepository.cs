@@ -1,11 +1,11 @@
-﻿using ASP.NET_MVC_專案分層架構_Part._1_20180517.Models.Interface;
+﻿using Mvc_Repository_Models.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Models.Repositiry
+namespace Mvc_Repository_Models.Repositiry
 {
     public class ProductRepository : GenericRepository<Products>, IProductRepository
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517
+namespace Mvc_Repository_Web
 {
     public class BundleConfig
     {

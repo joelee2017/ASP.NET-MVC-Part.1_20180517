@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net.Http.Headers;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage
+namespace Mvc_Repository_Web.Areas.HelpPage
 {
     /// <summary>
     /// This is used to identify the place where the sample should be applied.

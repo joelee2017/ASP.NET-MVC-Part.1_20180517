@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage.ModelDescriptions;
-using ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage.Models;
+using Mvc_Repository_Web.Areas.HelpPage.ModelDescriptions;
+using Mvc_Repository_Web.Areas.HelpPage.Models;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage.Controllers
+namespace Mvc_Repository_Web.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

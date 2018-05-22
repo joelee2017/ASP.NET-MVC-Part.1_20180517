@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage
+namespace Mvc_Repository_Web.Areas.HelpPage
 {
     /// <summary>
     /// This class will create an object of a given type and populate it with sample data.

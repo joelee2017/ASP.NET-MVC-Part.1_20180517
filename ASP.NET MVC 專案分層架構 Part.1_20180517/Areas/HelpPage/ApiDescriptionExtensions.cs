@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage
+namespace Mvc_Repository_Web.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage.ModelDescriptions;
+using Mvc_Repository_Web.Areas.HelpPage.ModelDescriptions;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Areas.HelpPage
+namespace Mvc_Repository_Web.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

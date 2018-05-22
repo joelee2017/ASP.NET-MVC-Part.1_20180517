@@ -6,11 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ASP.NET_MVC_專案分層架構_Part._1_20180517.Models;
-using ASP.NET_MVC_專案分層架構_Part._1_20180517.Models.Interface;
-using ASP.NET_MVC_專案分層架構_Part._1_20180517.Models.Repositiry;
+using Mvc_Repository_Models;
+using Mvc_Repository_Models.Interface;
+using Mvc_Repository_Models.Repositiry;
 
-namespace ASP.NET_MVC_專案分層架構_Part._1_20180517.Controllers
+namespace Mvc_Repository_Web.Controllers
 {
     public class ProductsController : Controller
     {
