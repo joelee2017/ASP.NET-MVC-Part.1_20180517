@@ -1,6 +1,8 @@
 ﻿using Mvc_Repository_Models;
 using Mvc_Repository_Models.Interface;
 using Mvc_Repository_Models.Repositiry;
+using Mvc_Repository_Service;
+using Mvc_Repository_Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,17 +15,17 @@ namespace Mvc_Repository_Web.Controllers
 {
     public class CategoryController : Controller
     {
-        private ICategoryRepository categoryRepository;
+        private ICategoryService categoryService;
 
         public CategoryController()
         {
-            this.categoryRepository = new CategoryRepository();
+            this.categoryService = new CategoryService();
         }
 
         // GET: Category
         public ActionResult Index()
         {
-            var categories = this.categoryRepository.GetAll()
+            var categories = this.categoryService.GetAll()
                 .OrderByDescending(x => x.CategoryID)
                 .ToList();
             return View(categories);
@@ -38,7 +40,7 @@ namespace Mvc_Repository_Web.Controllers
             }
             else
             {
-                var categories = this.categoryRepository.GetByID(id.Value);
+                var categories = this.categoryService.GetByID(id.Value);
                 return View(categories);
             }
         }
@@ -54,7 +56,7 @@ namespace Mvc_Repository_Web.Controllers
         {
             if(categories != null && ModelState.IsValid)
             {
-                this.categoryRepository.Create(categories);
+                this.categoryService.Create(categories);
                 return RedirectToAction("index");
             }
             else
@@ -68,12 +70,11 @@ namespace Mvc_Repository_Web.Controllers
         {
             if(!id.HasValue)
             {
-
                 return RedirectToAction("index");
             }
             else
             {
-                var category = this.categoryRepository.GetByID(id.Value);
+                var category = this.categoryService.GetByID(id.Value);
                 return View(category);
             }
         }
@@ -83,7 +84,7 @@ namespace Mvc_Repository_Web.Controllers
         {
             if(categories != null && ModelState.IsValid)
             {
-                this.categoryRepository.Update(categories);
+                this.categoryService.Update(categories);
                 return View(categories);
             }
             else
@@ -101,7 +102,7 @@ namespace Mvc_Repository_Web.Controllers
             }
             else
             {
-                var category = this.categoryRepository.GetByID(id.Value);
+                var category = this.categoryService.GetByID(id.Value);
                 return View(category);
             }
         }
@@ -111,8 +112,7 @@ namespace Mvc_Repository_Web.Controllers
         {
             try
             {
-                var category = this.categoryRepository.GetByID(id);
-                this.categoryRepository.Delete(category);
+                var category = this.categoryService.GetByID(id);
             }
             catch(DataException)
             {
