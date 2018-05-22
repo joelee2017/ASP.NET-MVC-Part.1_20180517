@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET MVC 專案分層架構 Part.1_20180517", "ASP.NET MVC 專案分層架構 Part.1_20180517\ASP.NET MVC 專案分層架構 Part.1_20180517.csproj", "{B38A1965-015D-4398-9462-36A16059E58A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc_Repository_Web", "ASP.NET MVC 專案分層架構 Part.1_20180517\Mvc_Repository_Web.csproj", "{B38A1965-015D-4398-9462-36A16059E58A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc_Repository_Models", "Mvc_Repository_Models\Mvc_Repository_Models.csproj", "{AE47DC12-B08B-44D8-A6F5-29438D0E107D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B38A1965-015D-4398-9462-36A16059E58A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B38A1965-015D-4398-9462-36A16059E58A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B38A1965-015D-4398-9462-36A16059E58A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE47DC12-B08B-44D8-A6F5-29438D0E107D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE47DC12-B08B-44D8-A6F5-29438D0E107D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE47DC12-B08B-44D8-A6F5-29438D0E107D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE47DC12-B08B-44D8-A6F5-29438D0E107D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
